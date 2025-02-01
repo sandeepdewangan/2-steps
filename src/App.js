@@ -7,15 +7,15 @@ export default function App() {
   const [isOpen, setIsOpen] = useState(true);
 
   function onNextClick() {
-    if (step < 2) setStep(step + 1);
+    if (step < 2) setStep((s) => s + 1);
   }
   function onPrevClick() {
-    if (step > 0) setStep(step - 1);
+    if (step > 0) setStep((s) => s - 1);
   }
 
   return (
     <div>
-      <button onClick={() => setIsOpen(!isOpen)}>Close</button>
+      <button onClick={() => setIsOpen((isO) => !isO)}>Close</button>
       {isOpen && (
         <div>
           <div>
