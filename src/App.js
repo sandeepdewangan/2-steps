@@ -1,9 +1,15 @@
+import { useState } from "react";
+
 const message = ["React is awesome", "React is good", "React is nice"];
 
 export default function App() {
-  const step = 0;
+  const [step, setStep] = useState(0);
+
   function onNextClick() {
-    console.log(step);
+    if (step < 2) setStep(step + 1);
+  }
+  function onPrevClick() {
+    if (step > 0) setStep(step - 1);
   }
 
   return (
@@ -16,7 +22,7 @@ export default function App() {
       <div>{message[step]}</div>
       <div>
         <button onClick={() => onNextClick()}>Next</button>
-        <button>Previous</button>
+        <button onClick={() => onPrevClick()}>Previous</button>
       </div>
     </div>
   );
